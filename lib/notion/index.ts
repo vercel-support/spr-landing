@@ -6,6 +6,7 @@ export default async function getNotionData() {
   console.log('getNotionData...');
   const data = await loadPageChunk({ pageId: PAGE_ID });
   const blocks = values(data.recordMap.block);
+  console.log('blocks', blocks);
 
   const sections = [];
   let meta = {};
