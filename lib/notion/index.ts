@@ -2,9 +2,16 @@ import rpc, { values } from './rpc'
 import { PAGE_ID } from './server-constants'
 import queryCollection from './queryCollection'
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 export default async function getNotionData() {
   console.log('getNotionData...');
   const data = await loadPageChunk({ pageId: PAGE_ID });
+  
+  console.log("Waiting for 5s...");
+  await delay(5000);
+  console.log("Waited 5s");
+
   const blocks = values(data.recordMap.block);
   console.log('blocks', blocks);
 
