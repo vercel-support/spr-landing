@@ -3,6 +3,7 @@ import { PAGE_ID } from './server-constants'
 import queryCollection from './queryCollection'
 
 export default async function getNotionData() {
+  console.log('getNotionData...');
   const data = await loadPageChunk({ pageId: PAGE_ID });
   const blocks = values(data.recordMap.block);
 
